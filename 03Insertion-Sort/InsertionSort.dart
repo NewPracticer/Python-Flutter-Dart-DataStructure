@@ -9,10 +9,11 @@
 void main() {
   var list = [2, 4, 6, 3, 1, 5];
   var list2 = ["2","4","6","3","1","5"];
+  var list3 = [2, 4, 6, 3, 1, 5];
   sort(list);
   insertionSort(list);
-  sort(list2);
-  insertionSort(list2);
+  insertionSort2(list3);
+
 }
 
 //Dart语言原生方法
@@ -31,8 +32,28 @@ void insertionSort(List arr) {
     for (int j = i; j - 1 >= 0; j--) {
       if (Comparable.compare(arr[j] ,arr[j - 1]) < 0) {
         swap(arr, j - 1, j);
+      }else{
+        break;
       }
     }
+  }
+  arr.forEach((element) {
+    print(element);
+  });
+
+}
+/**
+ * 插入排序优化
+ */
+void insertionSort2(List arr) {
+  print("手动实现优化插入排序算法----------------------");
+  for (int i = 0; i < arr.length; i++) {
+    var t = arr[i];
+    int j ;
+    for (j = i; j - 1 >= 0 &&(t.compareTo(arr[j - 1])<0); j--) {
+       arr[j] = arr[j-1];
+    }
+    arr[j] = t;
   }
   arr.forEach((element) {
     print(element);
