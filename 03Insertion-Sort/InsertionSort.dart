@@ -11,9 +11,8 @@ void main() {
   var list2 = ["2","4","6","3","1","5"];
   var list3 = [2, 4, 6, 3, 1, 5];
   sort(list);
-  insertionSort(list);
+  insertionSort(list2);
   insertionSort2(list3);
-
 }
 
 //Dart语言原生方法
@@ -91,7 +90,6 @@ void swap(arr, int i, int j) {
 //   * of the given list [:a:].
 //   *
 //   * If the given range is invalid an "OutOfRange" error is raised.
-//   * TODO(floitsch): do we want an error?
 //   *
 //   * See [:sort:] for requirements of the [:compare:] function.
 //   */
