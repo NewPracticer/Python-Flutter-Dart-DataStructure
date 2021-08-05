@@ -10,13 +10,21 @@ class LoopQueue<T> implements Queue<T>{
     arr = List.filled(10, false);
   }
 
+  LoopQueue.capcity(int capacity){
+    arr = List.filled(capacity+1, false);
+  }
+
   int getCapacity(){
-    int capacity =  arr!.length;
+    //目前这种方式浪费一个空间
+    int capacity =  arr!.length-1;
     return capacity;
   }
 
   @override
   dequeue() {
+    if(isEmpty()){
+      throw Exception("Cannot dequeue from an empty queue");
+    }
     T ret = arr![front];
     arr![front] = null;
     front = (front + 1) % arr!.length;
@@ -29,7 +37,7 @@ class LoopQueue<T> implements Queue<T>{
 
   void resize(int newCapacity){
 
-    List? newArr = List.filled(newCapacity, false);
+    List? newArr = List.filled(newCapacity+1, false);
     for(int i = 0 ; i < arr!.length ; i ++){
       newArr[i] = arr![(i + front) % arr!.length];
     }

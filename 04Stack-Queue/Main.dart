@@ -10,16 +10,16 @@ void main(){
 //  }
 //  stack.pop();
 //
-  ArrayQueue queue = new ArrayQueue();
-  for(int i = 0 ; i < 20 ; i ++){
-    queue.enqueue(i);
-    print(queue);
-    if(i % 3 == 2){
-      print('----出栈头部元素-----');
-      queue.dequeue();
-      print(queue);
-    }
-  }
+//  ArrayQueue queue = new ArrayQueue();
+//  for(int i = 0 ; i < 20 ; i ++){
+//    queue.enqueue(i);
+//    print(queue);
+//    if(i % 3 == 2){
+//      print('----出栈头部元素-----');
+//      queue.dequeue();
+//      print(queue);
+//    }
+//  }
 
   LoopQueue<int> loopQueue = new LoopQueue<int>();
   for(int i = 0 ; i < 30 ; i ++){
