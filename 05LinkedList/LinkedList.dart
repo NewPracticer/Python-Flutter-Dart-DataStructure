@@ -3,7 +3,7 @@ class LinkedList<T> {
   late int _size;
 
   LinkedList() {
-    _dummyHead = new _Node.all(null,null);
+    _dummyHead = new _Node.withEmpty();
     _size = 0;
   }
 
@@ -52,7 +52,7 @@ class LinkedList<T> {
     for (var i = 0; i < index; i++) {
       prev = prev?.next;
     }
-    _Node _node = new _Node.head(t);
+    _Node _node = new _Node.wihtHead(t);
     _node.next = prev?.next;
     prev?.next = _node;
     _size++;
@@ -127,12 +127,12 @@ class _Node<T> {
 
   T? t;
 
-  _Node.empty();
+  _Node.withEmpty();
 
-  _Node.all(this.t, this.next);
+  _Node.withAll(this.t, this.next);
 
-  factory _Node.head(T t) {
-    var result = new _Node.all(t,  null);
+  factory _Node.wihtHead(T t) {
+    var result = new _Node.withAll(t,  null);
     return result;
   }
 

@@ -1,5 +1,6 @@
 import 'LinkedList.dart';
 import 'LinkedListStatck.dart';
+import 'LinkedListQueue.dart';
 void main(){
   LinkedList linkedList = new LinkedList();
   for(int i = 0 ; i < 5 ; i ++){
@@ -19,5 +20,13 @@ void main(){
   for(int i = 0 ; i < 5 ; i ++){
     stack.push(i);
     print(stack);
+  }
+  LinkedListQueue queue = new LinkedListQueue();
+  for(int i = 0 ; i < 10 ; i ++){
+    queue.enqueue(i);
+    if(i % 3 ==2){
+      queue.dequeue();
+      print(queue);
+    }
   }
 }
