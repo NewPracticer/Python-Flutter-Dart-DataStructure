@@ -1,7 +1,7 @@
 # AlgorithmAndDataArchitecture
 
 #### 介绍
-使用Dart语言编写 慕课网算法与数据结构[https://class.imooc.com/sale/datastructure]
+使用Dart语言编写 [慕课网算法与数据结构](https://class.imooc.com/sale/datastructure)
 1. 线性搜索
 2. 选择排序
 3. 插入排序
