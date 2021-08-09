@@ -10,13 +10,19 @@ class MergeSort{
   }
 
   static _sortContent (List arr,int left,int right){
+    /**
+     * 当数组过小时，可以使用插入排序
+     */
     if(left >= right){
       return;
     }
     int mid = ((right-left)/2).toInt() +left;
     _sortContent(arr, left, mid);
     _sortContent(arr, mid+1, right);
-    _merge(arr,left,mid,right);
+    //提前进行判断，少一步merge
+    if(arr[mid].compareTo(arr[mid+1])>0){
+      _merge(arr,left,mid,right);
+    }
   }
 
   static _merge(List arr,int l,int mid,int right){
@@ -43,7 +49,7 @@ class MergeSort{
   }
 }
 void main(){
-  int n = 100;
+  int n = 20;
   List arr = ArrayGenerator.generateRandomArray(n, n);
   MergeSort.sort(arr);
   print(arr);
