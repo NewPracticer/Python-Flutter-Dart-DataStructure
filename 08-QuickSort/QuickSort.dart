@@ -1,4 +1,5 @@
 import 'ArrayGenerator.dart';
+import 'dart:math';
 class QuickSort{
   _QuickSort(){
   }
@@ -16,6 +17,9 @@ class QuickSort{
   }
 
   static int _partition(List arr,int left,int right){
+    //优化中间值选取，采用随机方式
+    int p = left+(new Random().nextInt(right-left+1));
+    _swap(arr, left, p);
     int j =left;
     for(var i = left+1;i<=right;i++){
         if(arr[i].compareTo(arr[left])<0){
