@@ -1,8 +1,7 @@
 import 'ArrayGenerator.dart';
 import 'dart:math';
-
 /**
- * 二路快排
+ * 三路快排
  */
 class QuickSort3way {
   _QuickSort3way() {}
