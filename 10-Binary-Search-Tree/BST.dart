@@ -1,3 +1,5 @@
+import 'LinkedListStatck.dart';
+import 'LinkedListQueue.dart';
 /**
  * 二分搜索树
  */
@@ -150,6 +152,113 @@ class BST<T extends Comparable<T>> {
     _postOrderDetail(node.right);
     print(node.e);
   }
+
+  // 二分搜索树的非递归前序遍历
+  preOrderNR() {
+    if (root == null) return;
+    LinkedListStack stack = new LinkedListStack();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      _Node cur = stack.pop();
+      print(cur.e);
+      if (cur.right != null) {
+        stack.push(cur.right);
+      }
+      if (cur.left != null){
+        stack.push(cur.left);
+      }
+    }
+  }
+
+  // 二分搜索树的层序遍历
+  levelOrder(){
+    if(root == null)
+      return;
+    LinkedListQueue q= new LinkedListQueue();
+    q.enqueue(root);
+    while(!q.isEmpty()){
+      _Node cur = q.dequeue();
+      print(cur.e);
+      if(cur.left != null){
+        q.enqueue(cur.left);
+      }
+      if(cur.right != null){
+        q.enqueue(cur.right);
+      }
+    }
+  }
+
+  // 寻找二分搜索树的最小元素
+  searchMinimum<T>(){
+    if(size == 0){
+      throw new Exception("BST is empty!");
+    }
+    return _minimum(root!).e;
+  }
+  // 返回以node为根的二分搜索树的最小值所在的节点
+  _Node _minimum(_Node node){
+    if(node.left == null){
+      return node;
+    }
+    return _minimum(node.left!);
+  }
+
+  // 寻找二分搜索树的最大元素
+  searchMaximum<T>(){
+    if(size == 0){
+      throw new Exception("BST is empty");
+    }
+    return _maximum(root!).e;
+  }
+  // 返回以node为根的二分搜索树的最大值所在的节点
+  _Node _maximum(_Node node){
+    if(node.right == null){
+      return node;
+    }
+    return _maximum(node.right!);
+  }
+
+  // 从二分搜索树中删除最小值所在节点, 返回最小值
+  removeMin<T>(){
+    T ret = searchMinimum();
+    root = _removeMinDetail(root!);
+    return ret;
+  }
+  // 删除掉以node为根的二分搜索树中的最小节点
+  // 返回删除节点后新的二分搜索树的根
+  _Node _removeMinDetail(_Node node){
+    if(node.left == null){
+      _Node rightNode = node.right!;
+      node.right = null;
+      size = size! - 1;
+      return rightNode;
+    }
+    node.left = _removeMinDetail(node.left!);
+    return node;
+  }
+
+
+  // 从二分搜索树中删除最大值所在节点
+  removeMax<T>(){
+    T ret = searchMaximum();
+    root = _removeMaxDetail(root!);
+    return ret;
+  }
+  // 删除掉以node为根的二分搜索树中的最大节点
+  // 返回删除节点后新的二分搜索树的根
+  _Node _removeMaxDetail(_Node node){
+    if(node.right == null){
+      _Node leftNode = node.left!;
+      node.left = null;
+      size = size! -1 ;
+      return leftNode;
+    }
+    node.right = _removeMaxDetail(node.right!);
+    return node;
+  }
+
+
+
 
   @override
   String toString() {
