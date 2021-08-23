@@ -1,6 +1,9 @@
 import 'Stack.dart';
 import 'LinkedList.dart';
 
+/**
+ * 链表栈
+ */
 class LinkedListStack implements Stack{
 
   LinkedList? _linkedList;

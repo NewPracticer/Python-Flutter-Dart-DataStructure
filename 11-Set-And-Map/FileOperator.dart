@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'dart:convert';
 
+/**
+ * 文件操作类
+ */
 class FileOperator{
 
     static Future<List> getFileString(String filename) async{
