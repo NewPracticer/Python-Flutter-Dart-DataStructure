@@ -62,16 +62,15 @@ class MaxHeap<E extends Comparable<E>>{
 
     // 取出堆中最大元素
     E extractMax(){
-
       E ret = findMax();
       _swap(0, data!.length - 1);
       data!.removeLast();
-      siftDown(0);
+      _siftDown(0);
 
       return ret;
     }
 
-    siftDown(int k){
+    _siftDown(int k){
       while(_leftChild(k) < data!.length){
         int j = _leftChild(k); // 在此轮循环中,data[k]和data[j]交换位置
         if( j + 1 < data!.length &&
@@ -83,6 +82,15 @@ class MaxHeap<E extends Comparable<E>>{
         _swap(k, j);
         k = j;
       }
+    }
+
+    // 取出堆中的最大元素，并且替换成元素e
+    E replace(E e){
+
+      E ret = findMax();
+      data![0] =e;;
+      _siftDown(0);
+      return ret;
     }
 
     _swap(int i, int j){
