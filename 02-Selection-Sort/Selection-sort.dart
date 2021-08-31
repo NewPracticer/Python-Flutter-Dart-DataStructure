@@ -1,5 +1,7 @@
 /**
  * 选择排序
+ *
+ * 选择最小的
  */
 void main(){
 
@@ -15,7 +17,7 @@ void selectionSort(List arr){
   for(int i = 0; i < arr.length; i ++){
     int minIndex = i;
     for(int j = i; j < arr.length; j ++){
-      if(arr[j].compareTo(arr[minIndex]) > 0)
+      if(arr[j].compareTo(arr[minIndex]) < 0)
         minIndex = j;
     }
     swap(arr, i, minIndex);
@@ -32,12 +34,12 @@ void swap(arr, int i, int j) {
 class Student {
 
   String? name;
-  int? score;
+  num? score;
 
   Student(this.name,this.score);
 
   @override
-  int compareTo(other) {
-    return other.score - this.score;
+  num? compareTo(other) {
+    return  this.score! - other.score;
   }
 }
