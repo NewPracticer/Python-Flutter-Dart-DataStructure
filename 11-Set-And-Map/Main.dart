@@ -12,6 +12,7 @@ void main() async{
   for (String word in result){
     bstSet1.add(word);
   }
+
   print("Total different words:  ${bstSet1.getSize()}");
 
 

@@ -3,34 +3,34 @@ import 'MaxHeap.dart';
 
 class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
 
-  MaxHeap<E>? maxHeap;
+  MaxHeap<E>? _maxHeap;
 
   PriorityQueue(){
-    maxHeap = new MaxHeap.withEmpty();
+    _maxHeap = new MaxHeap.withEmpty();
   }
 
   @override
   int? getSize(){
-    return maxHeap!.size();
+    return _maxHeap!.size();
   }
 
   @override
   bool isEmpty(){
-    return maxHeap!.isEmpty();
+    return _maxHeap!.isEmpty();
   }
 
   @override
   E getFront(){
-    return maxHeap!.findMax();
+    return _maxHeap!.findMax();
   }
 
   @override
   enqueue(E e){
-    maxHeap!.add(e);
+    _maxHeap!.add(e);
   }
 
   @override
   dequeue(){
-    return maxHeap!.extractMax();
+    return _maxHeap!.extractMax();
   }
 }
