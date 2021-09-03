@@ -11,8 +11,10 @@ class NewMerger<E> implements Merger{
 
 void main(){
   List nums = [-2, 0, 3, -5, 2, -1];
-  Merger<num> selfMerger = NewMerger() as Merger<num>;
-  SegmentTree<num> segTree = SegmentTree(nums, selfMerger);
+//  NewMerger<num> selfMerger = NewMerger<num>();
+//  SegmentTree segTree = SegmentTree(nums, selfMerger);
+  SegmentTree segmentTreeSec = SegmentTree(nums, new NewMerger());
+  print(segmentTreeSec.toString());
 }
 
 
