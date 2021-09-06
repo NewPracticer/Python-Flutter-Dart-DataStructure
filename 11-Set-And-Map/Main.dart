@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'FileOperator.dart';
 import 'BSTSet.dart';
+import 'BST.dart';
 
 void main() async{
 

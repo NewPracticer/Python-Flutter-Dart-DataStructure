@@ -1,14 +1,12 @@
-import 'Map.dart';
-
 /**
- * 二分搜索树映射
+ * 二分搜索树
  */
-class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
+class BST<K extends Comparable<K>, V>  {
   _Node? root;
 
   int? size;
 
-  BSTMap() {
+  BST() {
     root = null;
     size = 0;
   }
@@ -16,37 +14,37 @@ class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
   @override
   add(key, value) {
     // TODO: implement add
-    root = _addNode(root, key, value);
+    root = _addNode(root!, key, value);
   }
 
-  _Node _addNode(_Node? node, K key, V value) {
+  _Node _addNode(_Node node, K key, V value) {
     if (node == null) {
       size = size! + 1;
       return _Node(key, value);
     }
 
-    if (key.compareTo(node.key) < 0) {
+    if (key.compareTo(node._key) < 0) {
       node.left = _addNode(node.left!, key, value);
-    } else if (key.compareTo(node.key) > 0) {
+    } else if (key.compareTo(node._key) > 0) {
       node.right = _addNode(node.right!, key, value);
     } else {
       // key.compareTo(node.key) == 0
-      node.value = value;
+      node._value = value;
     }
     return node;
   }
 
   _Node? _getNode(_Node? node, K key) {
-    if (node == null) return null;
+  if (node == null) return null;
 
-    if (key.compareTo(node.key) == 0) {
-      return node;
-    } else if (key.compareTo(node.key) < 0) {
-      return _getNode(node.left, key);
-    } else {
-      // if(key.compareTo(node.key) > 0)
-      return _getNode(node.right, key);
-    }
+  if (key.compareTo(node._key) == 0) {
+  return node;
+  } else if (key.compareTo(node._key) < 0) {
+  return _getNode(node.left, key);
+  } else {
+  // if(key.compareTo(node.key) > 0)
+  return _getNode(node.right, key);
+  }
   }
 
   @override
@@ -57,7 +55,7 @@ class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
   @override
   get(key) {
     _Node? node = _getNode(root, key);
-    return node == null ? null : node.value;
+    return node == null ? null : node._value;
   }
 
   @override
@@ -75,7 +73,7 @@ class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
     _Node? node = _getNode(root, key);
     if(node != null){
       root = _removeNode(root!, key);
-      return node.value;
+      return node._value;
     }
     return null;
   }
@@ -85,11 +83,11 @@ class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
     if( node == null ){
       return null;
     }
-    if( key.compareTo(node.key) < 0 ){
+    if( key.compareTo(node._key) < 0 ){
       node.left = _removeNode(node.left! , key);
       return node;
     }
-    else if(key.compareTo(node.key) > 0 ){
+    else if(key.compareTo(node._key) > 0 ){
       node.right = _removeNode(node.right!, key);
       return node;
     }
@@ -146,20 +144,22 @@ class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
     if(node == null){
       throw new Exception(" $key + doesn't exist!");
     }
-    node.value = newValue;
+    node._value = newValue;
   }
 }
 
 class _Node<K, V> {
-  K? key;
+  K? _key;
 
-  V? value;
+  V? _value;
 
   _Node? left, right;
 
+
+
   _Node(K key, V value) {
-    this.key = key;
-    this.value = value;
+    this._key = key;
+    this._value = value;
     left = null;
     right = null;
   }

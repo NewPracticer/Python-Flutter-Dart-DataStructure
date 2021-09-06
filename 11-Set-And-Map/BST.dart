@@ -262,7 +262,7 @@ class BST<T extends Comparable<T>> {
     root = _removeNode(root!, e);
   }
 
-  _removeNode(_Node node, T e){
+  _removeNode(_Node node, T? e){
     if( node == null )
       return null;
 
