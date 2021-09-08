@@ -1,5 +1,8 @@
 import 'dart:collection';
 
+/**
+ * 哈希表重构
+ */
 class HashTableSec<K, V> {
   List? _hashtable;
 

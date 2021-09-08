@@ -1,5 +1,8 @@
 import 'dart:collection';
 
+/**
+ * 哈希表
+ */
 class HashTable<K, V>{
 
   List? _hashtable;
