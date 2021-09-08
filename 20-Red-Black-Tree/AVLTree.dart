@@ -45,7 +45,7 @@ class AVLTree<K extends Comparable<K>, V> {
         1 + [_getHeight(node.left), _getHeight(node.right)].reduce(max);
     // 计算平衡因子
     int balanceFactor = getBalanceFactor(node);
-    if (balanceFactor> 1 && getBalanceFactor(node.left) >= 0) {
+    if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0) {
       return _rightRotate(node);
     }
 //
@@ -240,18 +240,19 @@ class AVLTree<K extends Comparable<K>, V> {
       // 用这个节点顶替待删除节点的位置
       _Node successor = _minimum(node.right!);
       //w维持平衡性操作，不再执行removemin
-      successor.right = _removeNode(node.right!,successor._key);
+      successor.right = _removeNode(node.right!, successor._key);
       successor.left = node.left;
       node.left = node.right = null;
 //      return successor;
       retNode = successor;
     }
-    if(retNode == null) {
+    if (retNode == null) {
       return null;
     }
 
     // 更新height
-    retNode.height = 1 + [_getHeight(retNode.left), _getHeight(retNode.right)].reduce(max);
+    retNode.height =
+        1 + [_getHeight(retNode.left), _getHeight(retNode.right)].reduce(max);
 
     // 计算平衡因子
     int balanceFactor = getBalanceFactor(retNode);
@@ -278,7 +279,6 @@ class AVLTree<K extends Comparable<K>, V> {
     }
 
     return retNode;
-
   }
 
   // 删除掉以node为根的二分搜索树中的最小节点

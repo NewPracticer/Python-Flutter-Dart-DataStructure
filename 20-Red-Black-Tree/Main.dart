@@ -1,6 +1,7 @@
 import 'FileOperator.dart';
 import 'BST.dart';
 import 'AVLTree.dart';
+import 'RBTree.dart';
 
 
 void main() async{
@@ -46,11 +47,32 @@ void main() async{
 
   for(String word in words)
     avl.contains(word);
+
   var endNow1 = new DateTime.now();
   var endTime1 = endNow1.millisecondsSinceEpoch;
 
-  time = (endTime1 - startTime1) / 1000.0;
-  print("AVL:  $time  s");
+  double time3 = (endTime1 - startTime1) / 1000.0;
+  print("AVL:  $time3  s");
+
+  // Test BRTree
+  var startNow2 = new DateTime.now();
+  var startTime2 = startNow2.millisecondsSinceEpoch;
+
+  RBTree<String, num> rb = RBTree();
+  for (String word in words) {
+    if (rb.contains(word))
+      rb.set(word, rb.get(word) + 1);
+    else
+      rb.add(word, 1);
+  }
+
+  for(String word in words)
+    avl.contains(word);
+  var endNow2 = new DateTime.now();
+  var endTime2 = endNow2.millisecondsSinceEpoch;
+
+  double time2 = (endTime2 - startTime2) / 1000.0;
+  print("RBTree:  $time2  s");
 
 
 }
