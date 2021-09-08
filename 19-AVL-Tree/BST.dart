@@ -13,7 +13,6 @@ class BST<K extends Comparable<K>, V>  {
 
   @override
   add(key, value) {
-    // TODO: implement add
     root = _addNode(root, key, value);
   }
 

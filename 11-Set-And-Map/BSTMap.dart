@@ -15,7 +15,6 @@ class BSTMap<K extends Comparable<K>, V> extends Map<K, V> {
 
   @override
   add(key, value) {
-    // TODO: implement add
     root = _addNode(root, key, value);
   }
 
