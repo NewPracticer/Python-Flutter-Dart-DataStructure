@@ -55,11 +55,13 @@ void main() {
   int R = 101;
 
   // O(n)
-  List cnt = List.filled(R, int, growable: true);
-  for (Student student in students) cnt[student.getScore()!]++;
+  List cnt = List.filled(R, 0, growable: true);
+  for (Student student in students) {
+    cnt[student.getScore()!] = cnt[student.getScore()!] +1;
+  };
 
   // O(R)
-  List index = List.filled(R + 1, int, growable: true);
+  List index = List.filled(R + 1, 0, growable: true);
   for (int i = 0; i < R; i++) index[i + 1] = index[i] + cnt[i];
 
   // O(n)

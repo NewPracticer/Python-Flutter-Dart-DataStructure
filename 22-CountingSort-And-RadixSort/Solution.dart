@@ -1,6 +1,6 @@
 class Solution {
   sortColors(List<int> nums) {
-    List? cnt = List.filled(3, int, growable: true);
+    List? cnt = List.filled(3, 0, growable: true);
     for (int num in nums!) {
       cnt[num]++;}
 
@@ -19,7 +19,7 @@ class Solution {
     // 处理元素取值范围是 [0, R) 的计数排序
     int R = 3;
 
-    List? cnt = List.filled(3, int, growable: true);
+    List? cnt = List.filled(3, 0, growable: true);
     for (int num in nums!) {
       cnt[num]++;
     }
