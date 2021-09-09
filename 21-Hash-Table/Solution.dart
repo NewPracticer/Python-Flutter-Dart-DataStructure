@@ -9,10 +9,10 @@ class Solution {
 
     List freq = List.empty(growable: true);
     for(int i = 0 ; i < s.length ; i ++) {
-      freq[int.parse(s[i]) - int.parse('a')] ++;
+      freq[s[i].codeUnits[0] - 'a'.codeUnits[0]] ++;
     }
     for(int i = 0 ; i < s.length ; i ++) {
-      if (freq[int.parse(s[i]) - int.parse('a')] == 1) {
+      if (s[i].codeUnits[0] - 'a'.codeUnits[0] == 1) {
         return i;
       }
     }
