@@ -9,7 +9,7 @@ class SortingHelper {
     return true;
   }
 
-  static sortTest(String sortname, List? arr) {
+  static sortTest(String sortname, List arr) {
     var now = new DateTime.now();
     num startTime = now.millisecondsSinceEpoch;
 
