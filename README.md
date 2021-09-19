@@ -1,6 +1,6 @@
 # AlgorithmAndDataArchitecture
 
-<h2>使用Flutter的Dart语言重写数据结构与算法</h2>
+<h3>使用Flutter的Dart语言重写数据结构与算法</h3>
 1. 线性搜索
 2. 选择排序
 3. 插入排序
