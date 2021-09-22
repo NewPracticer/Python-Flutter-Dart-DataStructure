@@ -15,7 +15,7 @@ class AdjList{
     if(V < 0) throw Exception("V must be non-negative");
     if(E < 0) throw Exception("E must be non-negative");
     _adj = List.generate(V, (_)=> LinkedList<LinkedListEntryImpl<int>>(),growable: false);
-    for(int i =1;i<E;i++){
+    for(int i =1;i<=E;i++){
       int a =  int.parse(list[i].split(" ")[0]);
       _validateVertex(a);
       int b = int.parse(list[i].split(" ")[1]);

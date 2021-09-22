@@ -17,7 +17,7 @@ class AdjSet {
     if (E < 0) throw Exception("E must be non-negative");
     _treeSet = List.generate(V, (_) => SplayTreeSet<int>(), growable: false);
 
-    for (int i = 1; i < E; i++) {
+    for (int i = 1; i <= E; i++) {
       int a = int.parse(list[i].split(" ")[0]);
       _validateVertex(a);
       int b = int.parse(list[i].split(" ")[1]);

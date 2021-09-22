@@ -1,5 +1,9 @@
 import 'dart:collection';
 import 'dart:io';
+
+/**
+ * 图
+ */
 class Graph{
   int? _V; //图的顶点数量
   int? _E; //图的边的数量
@@ -14,15 +18,15 @@ class Graph{
 
     for (int i = 1; i <= E; i++) {
       int a = int.parse(list[i].split(" ")[0]);
-      _validateVertex(a);
+      validateVertex(a);
       int b = int.parse(list[i].split(" ")[1]);
-      _validateVertex(b);
+      validateVertex(b);
       (_treeSet![a] as SplayTreeSet).add(b);
       (_treeSet![b] as SplayTreeSet).add(a);
     }
   }
 
-  _validateVertex(int v) {
+  validateVertex(int v) {
     if (v < 0 || v >= _V!) throw new Exception("vertex  $v is invalid");
   }
 
@@ -31,8 +35,8 @@ class Graph{
   }
 
   bool hasEdge(int v, int w) {
-    _validateVertex(v);
-    _validateVertex(w);
+    validateVertex(v);
+    validateVertex(w);
     return (_treeSet![v] as SplayTreeSet).contains(w);
   }
 
@@ -45,7 +49,7 @@ class Graph{
   }
 
   adj(int v) {
-    _validateVertex(v);
+    validateVertex(v);
     return _treeSet![v];
   }
 

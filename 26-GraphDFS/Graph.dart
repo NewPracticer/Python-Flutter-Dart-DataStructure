@@ -1,5 +1,9 @@
 import 'dart:collection';
 import 'dart:io';
+
+/**
+ * 图
+ */
 class Graph{
   int? _V; //图的顶点数量
   int? _E; //图的边的数量
