@@ -1,16 +1,11 @@
 import 'dart:collection';
 import 'dart:io';
-
-/**
- * 图的邻接表
- *
- */
-class AdjSet {
+class Graph{
   int? _V; //图的顶点数量
   int? _E; //图的边的数量
   List? _treeSet;
 
-  AdjSet(V, E, List list) {
+  Graph(V, E, List list) {
     _V = V;
     _E = E;
     if (V < 0) throw Exception("V must be non-negative");
@@ -38,7 +33,7 @@ class AdjSet {
   bool hasEdge(int v, int w) {
     _validateVertex(v);
     _validateVertex(w);
-    return (_treeSet![v] as SplayTreeSet).elementAt(w) == 1;
+    return (_treeSet![v] as SplayTreeSet).contains(w);
   }
 
   int _degree(int v) {
@@ -61,21 +56,21 @@ class AdjSet {
     for (int j = 0; j < _V!; j++) {
       sb.write("节点：$j ");
       sb.write("${_treeSet![j].toString()} ");
-      sb.write('\n');
+    sb.write('\n');
     }
     return sb.toString();
   }
 }
-
 void main() async {
   File content = File("g.txt");
   List<String> list = await content.readAsLines();
   //读取到文件的顶点数量以及
   print(list[0].split(" ")[0]);
   print(list[0].split(" ")[1]);
-  int v = int.parse(list[0].split(" ")[0]);
-  int e = int.parse(list[0].split(" ")[1]);
+  int v = int.parse(list[0].split(" ")[0]) ;
+  int e = int.parse(list[0].split(" ")[1]) ;
 //
-  AdjSet adjList = AdjSet(v, e, list);
+  Graph adjList= Graph(v, e, list);
   print(adjList);
+
 }
