@@ -5,7 +5,7 @@ import 'dart:math';
  * 二路快排
  */
 class QuickSort2way {
-  _QuickSort2way() {}
+  QuickSort2way() {}
 
   static sort2ways(List arr) {
     Random rnd = new Random();

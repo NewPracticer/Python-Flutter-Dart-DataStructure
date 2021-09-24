@@ -5,7 +5,7 @@ import 'ArrayGenerator.dart';
  */
 class BinarySearch{
 
-  _BinarySearch(){}
+  BinarySearch(){}
 
   static int search<T>(List data,T target){
 

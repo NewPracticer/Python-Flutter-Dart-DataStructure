@@ -4,7 +4,7 @@ import 'dart:math';
  * 三路快排
  */
 class QuickSort3way {
-  _QuickSort3way() {}
+  QuickSort3way() {}
 
   static sort3ways(List arr) {
     Random rnd = new Random();

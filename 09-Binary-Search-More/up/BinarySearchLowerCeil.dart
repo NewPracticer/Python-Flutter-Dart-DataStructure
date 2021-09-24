@@ -4,7 +4,7 @@ import 'ArrayGenerator.dart';
  * 二分搜索
  */
 class BinarySearch {
-  _BinarySearch() {}
+  BinarySearch() {}
 
   static int search<T>(List data, T target) {
     int left = 0, right = data.length - 1;

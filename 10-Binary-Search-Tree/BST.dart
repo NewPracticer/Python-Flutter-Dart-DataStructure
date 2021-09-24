@@ -266,7 +266,7 @@ class BST<T extends Comparable<T>> {
     if( node == null )
       return null;
 
-    if( e!.compareTo(node.e!) < 0 ){
+    if( e.compareTo(node.e!) < 0 ){
       node.left = _removeNode(node.left! , e);
       return node;
     }

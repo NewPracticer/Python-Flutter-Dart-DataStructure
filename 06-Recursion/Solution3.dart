@@ -14,9 +14,9 @@ class Solution3{
       }
     }
     return dummyHead.next;
-    if(head == null){
-      return head;
-    }
+//    if(head == null){
+//      return head;
+//    }
 //    ListNode? res = removeElements(head.next!, val);
 //    if(head.val == val){
 //      return res;

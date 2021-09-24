@@ -45,7 +45,7 @@ class Trie {
   // 查询是否在Trie中有单词以prefix为前缀
   bool isPrefix(String prefix){
     _Node? cur = _root;
-    for(int i = 0 ; i < prefix!.length ; i ++){
+    for(int i = 0 ; i < prefix.length ; i ++){
       String c = prefix[i];
       if(cur!.next![c] == null){
         return false;

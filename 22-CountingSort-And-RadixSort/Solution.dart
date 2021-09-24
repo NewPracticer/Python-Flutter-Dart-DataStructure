@@ -1,7 +1,7 @@
 class Solution {
   sortColors(List<int> nums) {
     List? cnt = List.filled(3, 0, growable: true);
-    for (int num in nums!) {
+    for (int num in nums) {
       cnt[num]++;}
 
     for (int i = 0; i < cnt[0]; i++) {
@@ -20,7 +20,7 @@ class Solution {
     int R = 3;
 
     List? cnt = List.filled(3, 0, growable: true);
-    for (int num in nums!) {
+    for (int num in nums) {
       cnt[num]++;
     }
 

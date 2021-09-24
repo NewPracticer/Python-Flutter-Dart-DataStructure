@@ -1,7 +1,7 @@
 import 'ArrayGenerator.dart';
 import 'dart:math';
 class QuickSort{
-  _QuickSort(){
+  QuickSort(){
   }
   static sort(List arr){
     _sortDetail(arr,0,arr.length-1);

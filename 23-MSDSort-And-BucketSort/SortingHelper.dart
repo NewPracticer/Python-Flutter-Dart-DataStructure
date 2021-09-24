@@ -43,6 +43,6 @@ class SortingHelper {
     print("开始时间：$startTime : 结束时间:$endTime");
     double time = (endTime - startTime) / 1000.0;
     if (!SortingHelper.isSorted(arr)) throw new Exception(sortname + " failed");
-    print("$sortname , n = ${arr!.length}: $time s");
+    print("$sortname , n = ${arr.length}: $time s");
   }
 }
