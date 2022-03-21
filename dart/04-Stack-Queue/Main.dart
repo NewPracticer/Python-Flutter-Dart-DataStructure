@@ -2,7 +2,7 @@ import 'ArrayStack.dart';
 import 'ArrayQueue.dart';
 import 'LoopQueue.dart';
 
-void main(){
+void main() {
 //  ArrayStack<int> stack = new ArrayStack<int>();
 //  for(int i = 0 ; i < 10 ; i ++){
 //    stack.push(i);
@@ -22,11 +22,12 @@ void main(){
 //  }
 
   LoopQueue<int> loopQueue = new LoopQueue<int>();
-  for(int i = 0 ; i < 30 ; i ++){
+
+  for (int i = 0; i < 30; i++) {
     loopQueue.enqueue(i);
     print(loopQueue);
 
-    if(i % 3 == 2){
+    if (i % 3 == 2) {
       loopQueue.dequeue();
       print(loopQueue);
     }

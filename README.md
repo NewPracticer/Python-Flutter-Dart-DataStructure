@@ -2,10 +2,10 @@
 
 <h3>使用Flutter的Dart语言重写数据结构与算法</h3>
 
-1. [Dart,Python]线性搜索
-2. [Dart,Python]选择排序
-3. [Dart,Python]插入排序
-4. 栈，队列，循环队列
+1. **[Dart,Python]线性搜索**
+2. **[Dart,Python]选择排序**
+3. **[Dart,Python]插入排序**
+4. **[Dart,Python]栈，队列，循环队列**
 5. 链表，链表实现栈，链表实现队列
 6. 递归
 7. 归并排序
@@ -15,8 +15,8 @@
 11. 集合 和 映射
 12. 堆
 13. 优先队列
-14. [Dart,Python]冒泡排序
-15. [Dart,Python]希尔排序
+14. **[Dart,Python]冒泡排序**
+15. **[Dart,Python]希尔排序**
 16. 线段树
 17. Trie字典树
 18. 并查集
