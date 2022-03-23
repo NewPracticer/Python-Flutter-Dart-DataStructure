@@ -1,6 +1,7 @@
 # AlgorithmAndDataArchitecture
 
-<h3>使用Flutter的Dart语言重写数据结构与算法</h3>
+<h3>使用Python、Flutter的Dart语言重写数据结构与算法</h3>
+
 
 1. **[Dart,Python]线性搜索**
 2. **[Dart,Python]选择排序**
@@ -9,7 +10,7 @@
 5. 链表，链表实现栈，链表实现队列
 6. 递归
 7. 归并排序
-8. 快速排序
+8. **[Dart,Python]快速排序**
 9. 二分搜索
 10. 二分搜索树
 11. 集合 和 映射

@@ -66,22 +66,75 @@ def shellSort(sortList):
                 j = j- dist
         dist = dist//2
     return sortList
+
+#快速排序
+def quickSort(sortList,left,right):
+    if left<right:
+        q = partition(sortList,left,right)
+        quickSort(sortList,left,q-1)
+        quickSort(sortList, q+1, right)
+
+def partition(sortList,left,right):
+    i = left-1
+    pivot  = sortList[right]
+    for j in range(left,right):
+        if sortList[j] <= pivot:
+            i +=1
+            sortList[i],sortList[j] = sortList[j],sortList[i]
+    sortList[i+1],sortList[right] = sortList[right],sortList[i+1]
+    return i +1    
+
+# 归并排序
+def merge(arr1, arr2): 
+    result = []
+    while arr1 and arr2:
+        if arr1[0] < arr2[0]:
+            result.append(arr1.pop(0))
+        else:
+            result.append(arr2.pop(0))
+    if arr1:
+        result += arr1
+    if arr2:
+        result += arr2
+    return result
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    return merge(merge_sort(arr[:mid]), merge_sort(arr[mid:]))
+
 # 计算结果，计算时间
 def caculateResultAndTime(name,fuction,randomseed):
-    print("--------------------",name)
+    print("--------------------",name,'\n')
     random.seed(randomseed)
-    sortList = [random.randint(0,100) for _ in range(10)]
+    sortList = [random.randint(0,100) for _ in range(30)]
     print("原始数据：",sortList)
     startTime = time.perf_counter()
     fuction(sortList)
     endTime = time.perf_counter()
-    print("排序结果:",sortList,' 花费时间：',endTime-startTime)
+    print("排序结果:",sortList,'\n花费时间：',endTime-startTime)
+    print("-------------------- 结束\n")
 
 if __name__ == '__main__':
     caculateResultAndTime("希尔排序",shellSort,88)
     caculateResultAndTime("插入排序",insertionSort,89)
     caculateResultAndTime("冒泡排序",bubble_sort,90)
     caculateResultAndTime("选择排序",selectionSort,91)
+    caculateResultAndTime("归并排序",selectionSort,93)
+
+    print("--------------------快速排序")
+    random.seed(92)
+    sortList = [random.randint(0,100) for _ in range(15)]
+    print("原始数据：",sortList)
+    startTime = time.perf_counter()
+    quickSort(sortList, 0, len(sortList)-1)
+    endTime = time.perf_counter()
+    print("排序结果:",sortList,' 花费时间：',endTime-startTime)
+    print("-------------------- 结束\n")
+
+
+    
         
     
 
