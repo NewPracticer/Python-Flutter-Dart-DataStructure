@@ -4,6 +4,8 @@
     选择排序
     插入排序
     希尔排序
+    快速排序
+    归并排序
 '''
 import random
 import time
@@ -85,24 +87,38 @@ def partition(sortList,left,right):
     return i +1    
 
 # 归并排序
-def merge(arr1, arr2): 
+def merge(sortList1, sortList2): 
     result = []
     while arr1 and arr2:
-        if arr1[0] < arr2[0]:
-            result.append(arr1.pop(0))
+        if sortList1[0] < sortList2[0]:
+            result.append(sortList1.pop(0))
         else:
-            result.append(arr2.pop(0))
-    if arr1:
-        result += arr1
-    if arr2:
-        result += arr2
+            result.append(sortList2.pop(0))
+    if sortList1:
+        result += sortList1
+    if sortList2:
+        result += sortList2
     return result
 
-def merge_sort(arr):
-    if len(arr) <= 1:
+def merge_sort(sortList):
+    if len(sortList) <= 1:
         return arr
-    mid = len(arr) // 2
-    return merge(merge_sort(arr[:mid]), merge_sort(arr[mid:]))
+    mid = len(sortList) // 2
+    return merge(merge_sort(sortList[:mid]), merge_sort(sortList[mid:]))
+
+# 二分搜索
+def binarySearch(sortList,left,right,x):
+    if right >= left :
+        mid = int(left + (right-left)/2)
+        if sortList[mid] == x:
+            return mid
+        elif sortList[mid] >x:
+            return binarySearch(sortList, left, mid-1, x) 
+        else:
+            return binarySearch(sortList, mid+1, right, x)
+    else:
+        return -1 
+
 
 # 计算结果，计算时间
 def caculateResultAndTime(name,fuction,randomseed):
@@ -131,6 +147,15 @@ if __name__ == '__main__':
     quickSort(sortList, 0, len(sortList)-1)
     endTime = time.perf_counter()
     print("排序结果:",sortList,' 花费时间：',endTime-startTime)
+    print("-------------------- 结束\n")
+
+    print("--------------------二分搜索")
+    sortList = list(range(15))
+    print("原始数据：",sortList)
+    startTime = time.perf_counter()
+    result = binarySearch(sortList, 0, len(sortList)-1,10)
+    endTime = time.perf_counter()
+    print("查找结果:",result,' 花费时间：',endTime-startTime)
     print("-------------------- 结束\n")
 
 

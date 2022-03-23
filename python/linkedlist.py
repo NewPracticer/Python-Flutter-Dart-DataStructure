@@ -7,6 +7,25 @@ class __Node(object):
     def __str__(self):
         return self.value;
 
+class LinkedList(object):
+
+    def __init__(self):
+        self.__head = None
+        self.__size = 0
+        
+    def getSize(self):
+        return self.__size
+    
+    def isEmpty(self):
+        return self.__size == 0;
+
+    def remove(self,index):
+        if index<0 or index> self.__size:
+            raise Exception("Remove Failed,Illegal index")
+        prev = self.__head
+        for i in range(0,index):
+            prev = prev.next
+        
 
 
 
@@ -28,26 +47,8 @@ class __Node(object):
 
 
 # class LinkedList<T> {
-#   _Node? _dummyHead;
-#   late int _size;
-
-#   LinkedList() {
-#     _dummyHead = new _Node.withEmpty();
-#     _size = 0;
-#   }
-
-#   int getSize() {
-#     return _size;
-#   }
-
-#   bool isEmpty() {
-#     return _size == 0;
-#   }
-
 #   remove(int index){
-#     if (index < 0 || index > _size) {
-#       throw Exception("Remove Failed,Illegal index");
-#     }
+#     
 #     _Node? prev = _dummyHead;
 #     for(var i =0;i<index ;i++){
 #       prev = prev?.next;
