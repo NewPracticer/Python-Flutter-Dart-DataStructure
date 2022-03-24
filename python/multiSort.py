@@ -6,6 +6,7 @@
     希尔排序
     快速排序
     归并排序
+    二分搜索
 '''
 import random
 import time
@@ -157,6 +158,8 @@ if __name__ == '__main__':
     endTime = time.perf_counter()
     print("查找结果:",result,' 花费时间：',endTime-startTime)
     print("-------------------- 结束\n")
+
+    
 
 
     

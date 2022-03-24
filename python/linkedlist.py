@@ -1,30 +1,89 @@
-class __Node(object):
+class Node(object):
     
-    def __init__(self,value=None,next=None):
+    def __init__(self,value):
         self.value = value;
-        self.next = next;
+        self.next = None;
     
     def __str__(self):
         return self.value;
 
+
 class LinkedList(object):
 
     def __init__(self):
-        self.__head = None
-        self.__size = 0
+        self.head = None
+        self.size = 0
         
     def getSize(self):
-        return self.__size
+        return self.size
     
     def isEmpty(self):
-        return self.__size == 0;
+        return self.size == 0;
+    
+    #头部添加元素
+    def add(self, value):
+        node = Node(value)
+        node.next = self.head
+        self.head = node
+        self.size +=1
 
-    def remove(self,index):
-        if index<0 or index> self.__size:
-            raise Exception("Remove Failed,Illegal index")
-        prev = self.__head
-        for i in range(0,index):
-            prev = prev.next
+    # 尾部添加元素
+    def append(self, value):
+        node = Node(value)
+        if self.isEmpty():
+            self.head = node
+        else:
+            cur = self.head
+            while cur.next != None:
+                cur = cur.next
+            cur.next = node
+        self.size +=1
+    
+    # 指定位置添加元素
+    def insert(self, pos, value):
+        if pos <= 0:
+            self.add(value)
+        elif pos > self.size:
+            self.append(value)
+        else:
+            node = Node(value)
+            count = 0
+            pre = self.head
+            while count < (pos-1):
+                count += 1
+                pre = pre.next
+            node.next = pre.next
+            pre.next = node
+            self.size +=1 
+    
+    # 删除节点
+    def remove(self,value):
+        cur = self.head
+        pre = None
+        isFind = False
+        while cur != None:
+            if cur.value == value:
+                if not pre:
+                    self.head = cur.next
+                else:
+                    pre.next = cur.next
+                self.size -=1
+                isFind = True
+                break
+            else:
+                pre = cur
+                cur = cur.next
+        return isFind
+
+    # 查找节点是否存在     
+    def search(self,value):
+        cur = self.head
+        while cur != None:
+            if cur.value == value:
+                return True
+            cur = cur.next
+        return False
+
         
 
 
@@ -32,124 +91,5 @@ class LinkedList(object):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# class LinkedList<T> {
-#   remove(int index){
-#     
-#     _Node? prev = _dummyHead;
-#     for(var i =0;i<index ;i++){
-#       prev = prev?.next;
-#     }
-#     _Node? retNode = prev!.next;
-#     prev.next = retNode!.next;
-#     retNode.next = null;
-#     _size --;
-#     return retNode.t;
-#   }
-
-#   //从链表中删除第一个元素，返回删除元素
-#   T? removeFirst(){
-#     remove(0);
-#   }
-#   //从链表中删除第一个元素，返回删除元素
-#   T? removeLast(){
-#     remove(_size -1);
-#   }
-
-
-#   //在链表的index位置添加新的元素e
-#   add(int index, T t) {
-#     if (index < 0 || index > _size) {
-#       throw Exception("Add Failed,Illegal index");
-#     }
-# //      if(index == 0){
-# //         addFirst(t);
-# //      }else{
-#     _Node? prev = _dummyHead;
-#     for (var i = 0; i < index; i++) {
-#       prev = prev?.next;
-#     }
-#     _Node _node = new _Node.wihtHead(t);
-#     _node.next = prev?.next;
-#     prev?.next = _node;
-#     _size++;
-# //      }
-#   }
-
-#   addLast(T t) {
-#     add(_size, t);
-#   }
-
-#   addFirst(T t) {
-# //      _Node _node =new _Node.head(t);
-# //      _node.next = _head;
-# //      _head = _node;
-#     add(0, t);
-#   }
-
-#   //获取链表第index位置的元素
-#   T get(int index){
-#     if (index < 0 || index > _size) {
-#       throw Exception("Get Failed,Illegal index");
-#     }
-#     _Node? cur = _dummyHead!.next;
-#     for(var i=0;i<index;i++){
-#       cur = cur!.next;
-#     }
-#     return cur!.t;
-#   }
-
-#   T getFirst(){
-#     return get(0);
-#   }
-#   T getLast(){
-#     return get(_size-1);
-#   }
-#   set(int index,T t){
-#     if (index < 0 || index > _size) {
-#       throw Exception("Set Failed,Illegal index");
-#     }
-#     _Node? cur = _dummyHead!.next;
-#     for(var i =0;i<index;i++){
-#       cur = cur!.next;
-#     }
-#     cur!.t= t;
-#   }
-
-#   bool contains(T t){
-#     _Node? cur = _dummyHead!.next;
-#     for(var i =0;i<_size-1;i++){
-#       if(cur!.t.compareTo(t)){
-#         return true;
-#       }
-#       cur = cur.next;
-#     }
-#     return false;
-#   }
-
-#   @override
-#   String toString() {
-#     StringBuffer res =new StringBuffer();
-#     for(_Node? cur = _dummyHead!.next ; cur != null ; cur = cur.next){
-#       res.write(cur);
-#       res.write("->");
-#     }
-#     res.write("NULL");
-#     return res.toString();
-#   }
-# }
 
 

@@ -2,12 +2,11 @@
 
 <h3>使用Python、Flutter的Dart语言重写数据结构与算法</h3>
 
-
 1. **[Dart,Python]线性搜索**
 2. **[Dart,Python]选择排序**
 3. **[Dart,Python]插入排序**
 4. **[Dart,Python]栈，队列，循环队列**
-5. 链表，链表实现栈，链表实现队列
+5. **[Dart,Python]链表，链表实现栈，链表实现队列**
 6. 递归
 7. **[Dart,Python]归并排序**
 8. **[Dart,Python]快速排序**
