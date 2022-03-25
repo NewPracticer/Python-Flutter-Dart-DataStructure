@@ -120,6 +120,10 @@ def binarySearch(sortList,left,right,x):
     else:
         return -1 
 
+def sumNumber(n):
+    if n == 0:
+        return 0
+    return n+sumNumber(n-1)
 
 # 计算结果，计算时间
 def caculateResultAndTime(name,fuction,randomseed):
@@ -158,8 +162,10 @@ if __name__ == '__main__':
     endTime = time.perf_counter()
     print("查找结果:",result,' 花费时间：',endTime-startTime)
     print("-------------------- 结束\n")
-
     
+    print("--------------------递归函数")
+    print('递归结果：',sumNumber(100))
+    print("-------------------- 结束\n")
 
 
     
