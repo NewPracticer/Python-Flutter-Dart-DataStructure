@@ -7,7 +7,9 @@ class Node(object):
     def __str__(self):
         return self.value;
 
-
+'''
+    链表
+'''
 class LinkedList(object):
 
     def __init__(self):

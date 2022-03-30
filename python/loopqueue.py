@@ -1,3 +1,6 @@
+'''
+    循环队列
+'''
 class LoopQueue(object):
 
     def __init__(self, n=10):
